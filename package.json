@@ -10,8 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@types/string-similarity": "^4.0.2",
+    "eslint": "^8.56.0",
     "nuxt": "^3.9.0",
     "vue": "^3.4.5",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "string-similarity": "^4.0.4",
+    "to-title-case": "^1.0.0"
   }
 }
