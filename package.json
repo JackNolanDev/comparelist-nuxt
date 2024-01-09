@@ -6,7 +6,6 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "fullbuild": "bun ./scripts/buildData.js && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
