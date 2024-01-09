@@ -1,5 +1,5 @@
-const cheerio = require("cheerio");
-const toTitleCase = require("to-title-case");
+import cheerio from "cheerio";
+import toTitleCase from "to-title-case";
 
 const HARDCOVER_FICTION = "hardcoverFiction";
 const HARDCOVER_NONFICTION = "hardcoverNonfiction";
@@ -95,7 +95,7 @@ const getNYTimesData = async () => {
     // sleep to prevent rate limiting (nytimes only allows 5 API calls per min)
     await sleep(15000);
   }
-  console.log("DONE for NYTimes")
+  console.log("DONE for NYTimes");
   return nytimesLists;
 };
 
@@ -203,7 +203,7 @@ const getIndieBoundData = async () => {
     }
   });
 
-  console.log("DONE for IndieBound")
+  console.log("DONE for IndieBound");
   return indieBoundLists;
 };
 
@@ -323,12 +323,13 @@ const getPublishersData = async () => {
     await sleep(5000);
   }
 
-  console.log("DONE for Publishers")
+  console.log("DONE for Publishers");
   return publishersLists;
 };
 
-const updateLists = async (lists) => {
+export const buildLists = async () => {
   console.log("starting to fetch data!");
+  const lists = {};
 
   const [nyt, indie, publishers] = await Promise.all([
     getNYTimesData(),
@@ -338,15 +339,6 @@ const updateLists = async (lists) => {
   lists.nyt = nyt;
   lists.indie = indie;
   lists.publishers = publishers;
-  /*
-  lists.nyt = await getNYTimesData();
-  lists.indie = await getIndieBoundData();
-  lists.publishers = await getPublishersData();
-  */
 
   console.log("done fetching data!");
-};
-
-module.exports = {
-  updateLists,
 };
