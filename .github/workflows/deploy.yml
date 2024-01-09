@@ -22,6 +22,11 @@ jobs:
           NY_TIMES_API_KEY: ${{ secrets.NY_TIMES_API_KEY }}
       - run: pnpm run generate
       - run: touch .output/public/.nojekyll
+      - name: Setup Git repo for deployment
+        run: |
+          git init
+          git checkout -b master
+        working-directory: .output/public
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6
         with:
@@ -29,10 +34,10 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
+          workdir: .output/public
       - name: Commit build to github pages repo
         run: |
-          git init
-          git checkout -b master
+          git config -l
           git add -A
           git commit -S -m "deploy $(date)"
           git push -f git@github.com:comparelist/comparelist.github.io.git master
