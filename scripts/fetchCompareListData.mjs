@@ -341,4 +341,5 @@ export const buildLists = async () => {
   lists.publishers = publishers;
 
   console.log("done fetching data!");
+  return lists;
 };

@@ -3,7 +3,7 @@
 # abort on errors
 set -e
 
-node ./scripts/buildData.js
+node ./scripts/buildData.mjs
 pnpm run generate
 
 cd .output/public
@@ -12,15 +12,15 @@ cd .output/public
 # https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/
 touch .nojekyll
 
-# git init
+git init
 
-# # comparelist.github.io uses master as the main branch
-# git checkout -b master
+# comparelist.github.io uses master as the main branch
+git checkout -b master
 
-# git add -A
-# git commit -m "deploy $(date)"
+git add -A
+git commit -m "deploy $(date)"
 
-# # if you are deploying to https://<USERNAME>.github.io
-# git push -f git@github.com:comparelist/comparelist.github.io.git master
+# if you are deploying to https://<USERNAME>.github.io
+git push -f git@github.com:comparelist/comparelist.github.io.git master
 
 cd ../..
