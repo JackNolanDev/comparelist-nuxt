@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "fullbuild": "bun ./scripts/buildData.js && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -13,6 +14,7 @@
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@types/string-similarity": "^4.0.2",
+    "bun-types": "latest",
     "eslint": "^8.56.0",
     "nuxt": "^3.9.0",
     "vue": "^3.4.5",
