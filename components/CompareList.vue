@@ -2,7 +2,7 @@
   <div @keyup.esc="() => (state.selected = undefined)">
     <div class="container page">
       <h1 class="display-2 text-center mt-2">
-        Compare List
+        Compare Bestseller<span class="d-none d-md-inline"> List</span>s
       </h1>
       <label
         for="active-list-sel"
