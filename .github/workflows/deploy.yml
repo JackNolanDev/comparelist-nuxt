@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 2 * * 0-1,6"
+jobs:
+  deploy_github_page:
+    name: deploy to github pages
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8.6.12
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'pnpm'
+    - run: pnpm install
+    - run: ./deploy.sh
