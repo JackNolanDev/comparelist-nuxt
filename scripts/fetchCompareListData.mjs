@@ -93,7 +93,9 @@ const getNYTimesData = async () => {
       console.log(data);
     }
     // sleep to prevent rate limiting (nytimes only allows 5 API calls per min)
-    await sleep(15000);
+    if (key !== ADVICE) {
+      await sleep(15000);
+    }
   }
   console.log("DONE for NYTimes");
   return nytimesLists;
