@@ -41,7 +41,6 @@ jobs:
           workdir: .output/public
       - name: Commit build to github pages repo
         run: |
-          git config -l
           git add -A
           git commit -S -m "deploy $(date)"
           git push -f git@github.com:comparelist/comparelist.github.io.git master
