@@ -3,9 +3,8 @@
 # abort on errors
 set -e
 
-bun install
-bun ./scripts/buildData.js
-bun run generate
+node ./scripts/buildData.js
+pnpm run generate
 
 cd .output/public
 
